@@ -1,3 +1,2 @@
-let msg = "@samantha who is shogo" 
-let person = msg.match(/who is (.*)/)[1]
-console.log(person);
+let date = new Date();
+console.log(date);
