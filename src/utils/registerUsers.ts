@@ -12,6 +12,7 @@ export async function registerUsers (app : any) {
             let rname = e.profile.real_name;
             let dname = e.profile.display_name;
             let email = e.profile.email;
+            let for_rolls = "rol" + dname;
             let score = "0";
             if(dname == undefined) {
                 dname = rname;
@@ -23,6 +24,7 @@ export async function registerUsers (app : any) {
               setlist(id,email);
               setlist(id,score);
               setValue(dname,id);
+              setlist(for_rolls,"none");
             }
         }
       })

@@ -30,14 +30,14 @@ export function bkc(app : any) {
 
 
 
-app.message("hoo haa hoo haa", async ({ message,say} : {message : {user : string},say : Function}) => {
+app.message("mdg ka dhoom dhadaka", async ({ message,say} : {message : {user : string},say : Function}) => {
     await say({
         blocks: [
             {
                 "type":"section",
                 "text": {
                     "type": "mrkdwn",
-                    "text" : ">*MDG KA DHOOM DHADHAKA !!*"
+                    "text" : ">*HOO HAA HOO HAA !!*"
                 }
             }
         ]

@@ -6,7 +6,8 @@ export function roles (app : {event : Function}) {
         let msg = event.text;
         if (msg.match(/ who is /)) {
             let person = msg.match(/ who is (.*)/)[1];
-            let list = await getList(person);
+            let rolperson = "rol" + person;
+            let list = await getList(rolperson);
             let size = list.length;
             if (size == 0) {
                 await say(`${person} ? Never heard of them !`)
@@ -26,11 +27,12 @@ export function roles (app : {event : Function}) {
         } else if (msg.match(/[a-zA-Z]* is [a-zA-Z]*/)) {
             let person = msg.match(/\<.*\> (.*) is/)[1];
             let tags = msg.match(/is (.*)/)[1];
-            let list = await person.getList(person);
+            let rolperson = "rol" + person;
+            let list = await person.getList(rolperson);
             if(list.length == 0) {
                 await say(`${person} ? Never heard of them !`) 
             } else {
-                await setlist(person,tags);
+                await setlist(rolperson,tags);
                 await say(`ok, ${person} is ${tags}`);
             }
         }
