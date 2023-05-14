@@ -1,6 +1,5 @@
-app.message('ping', async ({message, say}) => {
-  console.log(message);
-  await say('pong');
-});
+import {kachodi} from './scripts/ping'
 
-export var bruh = 50;
+export function routing (app : any) : any {
+  kachodi(app);
+};

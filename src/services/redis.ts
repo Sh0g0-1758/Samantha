@@ -1,14 +1,11 @@
-import {createClient} from 'redis';
+import { createClient } from "redis";
 
-let client = createClient({
-  url: process.env.REDIS_URL,
-});
+const client = createClient();
 
 export async function redisInit() {
-  client.on('error', err => {
-    console.log('[REDIS]', err);
+  client.on('error', (error : {} ) => {
+    console.log('[REDIS]', error);
   });
-
   await client.connect();
 }
 
@@ -20,7 +17,9 @@ function isReady(): boolean {
   if (!client.isReady) {
     console.log('[REDIS] Error: client is not ready');
     return false;
-  } else return true;
+  } else {
+    return true;
+  }
 }
 
 export async function setValue(key: string, value: string) {
