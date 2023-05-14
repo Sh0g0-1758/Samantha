@@ -44,8 +44,8 @@ export function score (app : {event : Function}) {
                 })
                 setTimeout(async() => {
                     await say("```\n" + output + "\n```")
-                },100);
-            },100)
+                },80);
+            },80)
         }
     })
 }

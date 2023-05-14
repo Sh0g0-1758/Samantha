@@ -4,6 +4,7 @@ import { greet } from './scripts/greet';
 import { roles } from './scripts/roles';
 import { test } from './scripts/test';
 import { score } from './scripts/score';
+import { incr_dcr } from './scripts/incr_dcr';
 
 export function routing (app : any) : any {
   test(app);
@@ -12,4 +13,5 @@ export function routing (app : any) : any {
   greet(app);
   roles(app);
   score(app);
+  incr_dcr(app);
 };

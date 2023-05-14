@@ -51,3 +51,7 @@ export async function setlist(key : string,value : string) :  Promise<any> {
   }
   await client.lPush(key,value);
 }
+
+export async function update(name : string, o_index : number, nvalue : string) {
+  await client.lSet(name,o_index,nvalue);
+}

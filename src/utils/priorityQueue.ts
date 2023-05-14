@@ -68,7 +68,7 @@ export class PriorityQueue {
 		return item;
 	}
 
-	add(item : {score : number,id : string}) {
+	add(item : {"score" : number,"id" : string}) {
 		this.heap.push(item);
 		this.heapifyUp();
 	}
