@@ -1,12 +1,12 @@
 /scripts
-    lab:            is lab open/close
-    lab:            lab is open/close
-    greet:          good night/morning...
-    roles:          {bot} <user> is/is not ...
-    roles:          {bot} who/who is/who was <user>
-    birthday:       greet birthday/other occasions
-    test:           {bot} ping
-    test:           {bot} echo <msg>
+    lab:            is lab open/close 1
+    lab:            lab is open/close 1
+    greet:          good night/morning..  1.
+    roles:          {bot} <user> is/is not ...   1
+    roles:          {bot} who/who is/who was <user>   1
+    birthday:       greet birthday/other occasions    0 
+    test:           {bot} ping  1 
+    test:           {bot} echo <msg>  1
     test:           {bot} fake <event>
     help:           {bot} help
     help:           {bot} help <query>
