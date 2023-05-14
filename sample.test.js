@@ -1,1 +1,1 @@
-log("this is me and that is you !!")
+log('this is me and that is you !!');

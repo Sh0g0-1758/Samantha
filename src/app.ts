@@ -2,9 +2,9 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 import {App} from '@slack/bolt';
 import {redisInit} from './services/redis';
-import {routing} from "./router";
-import { registerUsers } from './utils/registerUsers';
-import { registerGroup } from './utils/registerGroup';
+import {routing} from './router';
+import {registerUsers} from './utils/registerUsers';
+import {registerGroup} from './utils/registerGroup';
 
 let app = new App({
   token: process.env.SLACK_BOT_TOKEN,
@@ -18,8 +18,13 @@ async function init() {
   console.log('⚡️ samantha is running :)');
   await redisInit();
   await registerUsers(app);
-  await registerGroup(app,"lemon",["shogo","Simple Samosa","SHOURYA GOEL 22114090"]);
-  routing(app)
+  // await registerGroup(app, 'lemon', [
+  //   'shogo',
+  //   'Simple Samosa',
+  //   'SHOURYA GOEL 22114090',
+  // ]);
+  // use this if you want to register a new group. change lemon with group name and the array with the display names of the users.
+  routing(app);
 }
 
 init();

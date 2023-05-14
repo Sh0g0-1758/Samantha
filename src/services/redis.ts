@@ -1,9 +1,9 @@
-import { createClient } from "redis";
+import {createClient} from 'redis';
 
 const client = createClient();
 
 export async function redisInit() {
-  client.on('error', (error : {} ) => {
+  client.on('error', (error: {}) => {
     console.log('[REDIS]', error);
   });
   await client.connect();
@@ -37,21 +37,21 @@ export async function getValue(key: string): Promise<any> {
   return data;
 }
 
-export async function getList(key : string) : Promise<any> {
-  if(!isReady()) {
+export async function getList(key: string): Promise<any> {
+  if (!isReady()) {
     return undefined;
   }
-  let data = await client.lRange(key,0,-1);
-  return data
+  let data = await client.lRange(key, 0, -1);
+  return data;
 }
 
-export async function setlist(key : string,value : string) :  Promise<any> {
-  if(!isReady()) {
+export async function setlist(key: string, value: string): Promise<any> {
+  if (!isReady()) {
     return undefined;
   }
-  await client.lPush(key,value);
+  await client.lPush(key, value);
 }
 
-export async function update(name : string, o_index : number, nvalue : string) {
-  await client.lSet(name,o_index,nvalue);
+export async function update(name: string, o_index: number, nvalue: string) {
+  await client.lSet(name, o_index, nvalue);
 }
