@@ -14,4 +14,8 @@ export function test (app : {message : Function}) {
         toEcho = data.match(/echo (.*)/)![1];
         await say(`${toEcho}`)
     })
+
+    app.message("sis <@xxxxxx> ++", async ({message,say} : {message : {user : string,text : string},say : Function}) => {
+        console.log(message);
+    })
 }
