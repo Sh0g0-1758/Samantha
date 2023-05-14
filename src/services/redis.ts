@@ -36,3 +36,18 @@ export async function getValue(key: string): Promise<any> {
   let data = await client.get(key);
   return data;
 }
+
+export async function getList(key : string) : Promise<any> {
+  if(!isReady()) {
+    return undefined;
+  }
+  let data = await client.lRange(key,0,-1);
+  return data
+}
+
+export async function setlist(key : string,value : string) :  Promise<any> {
+  if(!isReady()) {
+    return undefined;
+  }
+  await client.lPush(key,value);
+}
