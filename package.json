@@ -12,7 +12,7 @@
   "scripts": {
     "test": "jest",
     "lint": "gts lint",
-    "clean": "rimraf src",
+    "clean": "rimraf dist-src",
     "compile": "tsc -w",
     "fix": "gts fix",
     "prepare": "npm.cmd run compile",
@@ -20,7 +20,7 @@
     "posttest": "npm.cmd run lint",
     "start": "npx nodemon --exec npx ts-node ./src/app.ts",
     "build": "npm-run-all clean transpile",
-    "transpile": "babel ./src --out-dir src"
+    "transpile": "babel ./src --out-dir dist-src"
   },
   "devDependencies": {
     "@types/node": "^14.18.46",

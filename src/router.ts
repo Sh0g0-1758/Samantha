@@ -1,5 +1,9 @@
-import {kachodi} from './scripts/ping'
+import {ping} from './scripts/ping'
+import {lab} from './scripts/lab'
+import { mention } from './scripts/mention';
 
 export function routing (app : any) : any {
-  kachodi(app);
+  ping(app);
+  lab(app);
+  mention(app);
 };
