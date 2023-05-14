@@ -5,6 +5,7 @@ import { roles } from './scripts/roles';
 import { test } from './scripts/test';
 import { score } from './scripts/score';
 import { incr_dcr } from './scripts/incr_dcr';
+import { info } from './scripts/info';
 
 export function routing (app : any) : any {
   test(app);
@@ -14,4 +15,5 @@ export function routing (app : any) : any {
   roles(app);
   score(app);
   incr_dcr(app);
+  info(app);
 };
