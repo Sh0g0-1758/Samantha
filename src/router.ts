@@ -8,7 +8,7 @@ import {incr_dcr} from './scripts/incr_dcr';
 import {info} from './scripts/info';
 import {bkc} from './scripts/bkc';
 
-export function routing(app: any): any {
+export function routing(app: any) {
   test(app);
   lab(app);
   mention(app);

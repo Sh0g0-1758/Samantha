@@ -1,19 +1,19 @@
 import {getList} from '../services/redis';
+import * as types from '../types'
 
-export function info(app: {message: Function; event: Function}) {
+export function info(app: types.App) {
   app.message(
     /^samantha info /,
-    async ({message, say}: {message: {text: string}; say: Function}) => {
-      let pattern = /\@(.*?)\>/g;
-      let master = message.text;
-      let id = master.match(pattern);
-      console.log(id);
+    async ({message, say}: types.AppMessage) => {
+      let pattern : RegExp = /\@(.*?)\>/g;
+      let master : string = message.text;
+      let id : RegExpMatchArray | null = master.match(pattern);
       id?.forEach(async e => {
-        let len = e.length;
-        let fid = e.substring(1, len - 1);
-        let list = await getList(fid);
-        let rname = list[3];
-        let email = list[1];
+        let len : number = e.length;
+        let fid : string = e.substring(1, len - 1);
+        let list : string[] = await getList(fid);
+        let rname : string = list[3];
+        let email : string = list[1];
         let response: object = {
           blocks: [
             {
@@ -40,17 +40,16 @@ export function info(app: {message: Function; event: Function}) {
     }
   );
 
-  app.event('app_mention', async ({event, say}: {event: any; say: any}) => {
-    let pattern = /\@(.*?)\>/g;
-    let master = event.text;
-    let id = master.match(pattern);
-    console.log(id);
+  app.event('app_mention', async ({event, say}: types.AppMention) => {
+    let pattern : RegExp = /\@(.*?)\>/g;
+    let master : string = event.text;
+    let id : RegExpMatchArray | null = master.match(pattern);
     id?.forEach(async (e: string) => {
-      let len = e.length;
-      let fid = e.substring(1, len - 1);
-      let list = await getList(fid);
-      let rname = list[3];
-      let email = list[1];
+      let len : number = e.length;
+      let fid : string = e.substring(1, len - 1);
+      let list : string[] = await getList(fid);
+      let rname : string = list[3];
+      let email : string = list[1];
       let response: object = {
         blocks: [
           {

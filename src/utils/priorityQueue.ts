@@ -1,31 +1,31 @@
 export class PriorityQueue {
-  heap: any;
+  heap : {score: number; id: string}[];
   constructor() {
     this.heap = [];
   }
 
   // Helper Methods
-  getLeftChildIndex(parentIndex: number) {
+  getLeftChildIndex(parentIndex: number) : number {
     return 2 * parentIndex + 1;
   }
 
-  getRightChildIndex(parentIndex: number) {
+  getRightChildIndex(parentIndex: number) : number {
     return 2 * parentIndex + 2;
   }
 
-  getParentIndex(childIndex: number) {
+  getParentIndex(childIndex: number) : number {
     return Math.floor((childIndex - 1) / 2);
   }
 
-  hasLeftChild(index: number) {
+  hasLeftChild(index: number) : boolean {
     return this.getLeftChildIndex(index) < this.heap.length;
   }
 
-  hasRightChild(index: number) {
+  hasRightChild(index: number) : boolean {
     return this.getRightChildIndex(index) < this.heap.length;
   }
 
-  hasParent(index: number) {
+  hasParent(index: number) : boolean {
     return this.getParentIndex(index) >= 0;
   }
 
@@ -33,11 +33,11 @@ export class PriorityQueue {
     return this.heap[this.getLeftChildIndex(index)];
   }
 
-  rightChild(index: number) {
+  rightChild(index: number) : {score: number; id: string} {
     return this.heap[this.getRightChildIndex(index)];
   }
 
-  parent(index: number) {
+  parent(index: number) : {score: number; id: string} {
     return this.heap[this.getParentIndex(index)];
   }
 
@@ -47,7 +47,7 @@ export class PriorityQueue {
     this.heap[indexTwo] = temp;
   }
 
-  peek() {
+  peek() : null | {score: number; id: string} {
     if (this.heap.length === 0) {
       return null;
     }
@@ -57,7 +57,7 @@ export class PriorityQueue {
   // Removing an element will remove the
   // top element with highest priority then
   // heapifyDown will be called
-  remove() {
+  remove() : null | {score: number; id: string} {
     if (this.heap.length === 0) {
       return null;
     }
@@ -74,7 +74,7 @@ export class PriorityQueue {
   }
 
   heapifyUp() {
-    let index = this.heap.length - 1;
+    let index : number = this.heap.length - 1;
     while (
       this.hasParent(index) &&
       this.parent(index).score > this.heap[index].score
@@ -85,7 +85,7 @@ export class PriorityQueue {
   }
 
   heapifyDown() {
-    let index = 0;
+    let index : number = 0;
     while (this.hasLeftChild(index)) {
       let smallerChildIndex = this.getLeftChildIndex(index);
       if (

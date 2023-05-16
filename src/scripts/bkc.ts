@@ -1,13 +1,14 @@
 import {options as getdata, options2 as getdata2} from '../services/api';
 import axios from 'axios';
+import * as types from '../types'
 
-export function bkc(app: any) {
+export function bkc(app: types.App) {
   // this is for getting rick rolled :))))
   app.message(
     'i am bored',
-    async ({message, say}: {message: {user: string}; say: Function}) => {
+    async ({message, say}: types.AppMessage) => {
       const response: {data: {body: [{setup: string; punchline: string}]}} =
-        await axios.request(getdata2);
+      await axios.request(getdata2);
       await say(`${response.data.body[0].setup}`);
       await say(`${response.data.body[0].punchline}`);
       await say({
@@ -34,7 +35,7 @@ export function bkc(app: any) {
   // this one is for mdg ka dhoom dhadaka ;)
   app.message(
     'mdg ka dhoom dhadaka',
-    async ({message, say}: {message: {user: string}; say: Function}) => {
+    async ({message, say}: types.AppMessage) => {
       await say({
         blocks: [
           {
@@ -51,9 +52,9 @@ export function bkc(app: any) {
   // for getting a meme
   app.message(
     'get a meme',
-    async ({message, say}: {message: object; say: Function}) => {
+    async ({message, say}: types.AppMessage) => {
       const response: {data: [{image: string}]} = await axios.request(getdata);
-      const img_url = response.data[0].image;
+      const img_url : string = response.data[0].image;
       await say({
         blocks: [
           {

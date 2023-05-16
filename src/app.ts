@@ -16,8 +16,8 @@ let app = new App({
 async function init() {
   await app.start(process.env.PORT || 3000);
   console.log('⚡️ samantha is running :)');
-  await redisInit();
-  await registerUsers(app);
+  await redisInit(); // connect to the app
+  await registerUsers(app); // to register the current users of the app in our database
   // await registerGroup(app, 'lemon', [
   //   'shogo',
   //   'Simple Samosa',
