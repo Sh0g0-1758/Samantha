@@ -1,10 +1,10 @@
-import { App } from '@slack/bolt';
-import * as types from '../types'
+import {App} from '@slack/bolt';
+import * as types from '../types';
 
 export function help(app: types.App) {
   app.event('app_mention', async ({event, say}: types.AppMention) => {
-    let msg : string = event.text;
-    let regex : RegExp = / help$/
+    let msg: string = event.text;
+    let regex: RegExp = / help$/;
     let response: object = {
       blocks: [
         {
